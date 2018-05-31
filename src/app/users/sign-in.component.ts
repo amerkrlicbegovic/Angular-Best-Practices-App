@@ -8,11 +8,11 @@ import { UserRepositoryService } from '../core/user-repository.service'
   templateUrl: './sign-in.component.html'
 })
 export class SignInComponent {
-  credentials:any = {};
+  credentials: any = {};
 
-  constructor(private router:Router, private userRepository:UserRepositoryService) { }
+  constructor(private router: Router, private userRepository: UserRepositoryService) { }
 
-  signIn(credentials:any) {
+  signIn(credentials: any) {
     this.userRepository.signIn(credentials)
       .subscribe(
         null,

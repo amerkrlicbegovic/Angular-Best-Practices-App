@@ -15,10 +15,11 @@ export class RegisterComponent {
   lastName: FormControl;
   email: FormControl;
   password: FormControl;
-  saving:boolean=false;
+  saving= false;
 
-  constructor(private router:Router, private userRepository:UserRepositoryService) { }
+  constructor(private router: Router, private userRepository: UserRepositoryService) { }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     this.firstName = new FormControl('', Validators.required);
     this.lastName = new FormControl('', Validators.required);
@@ -34,7 +35,7 @@ export class RegisterComponent {
   }
 
   registerUser(user) {
-    this.saving=true;
+    this.saving = true;
     this.saveAndRedirect(user);
   }
 
@@ -46,7 +47,7 @@ export class RegisterComponent {
     this.userRepository.saveUser(user)
     .subscribe(
       null,
-      ()=>this.saving=false,
+      () => this.saving = false,
       () => this.router.navigate(['/catalog']));
   }
 }

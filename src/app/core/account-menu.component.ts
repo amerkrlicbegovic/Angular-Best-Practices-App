@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'account-menu',
   styleUrls: ['./account-menu.component.css'],
   template: `
@@ -18,8 +19,8 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 })
 export class AccountMenuComponent {
   @Input() user;
-  @Output() signedOut:EventEmitter<any> = new EventEmitter<any>();
-  showMenu:boolean;
+  @Output() signedOut: EventEmitter<any> = new EventEmitter<any>();
+  showMenu: boolean;
 
   signOut() {
     this.showMenu = false;

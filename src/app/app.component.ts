@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'my-app',
     styles: [`
       .app {
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
         margin: auto;
       }
       .main {
-        background-color:white;      
+        background-color:white;
       }
     `],
     template: `

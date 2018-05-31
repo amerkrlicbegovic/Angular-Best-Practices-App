@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class FilterClassesService {
   constructor() {}
-  
-  filterClasses(filter, classes) {
-    if (!filter)
-      return classes;
 
+  filterClasses(filter, classes) {
+    if (!filter) {
+      return classes;
+    }
     if (filter === 'GEN') {
       return this.showOnlyGeneralCourses(classes);
     }

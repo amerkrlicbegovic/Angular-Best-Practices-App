@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
 import { UserRepositoryService } from '../core/user-repository.service'
 
 @Injectable()
 export class CatalogRepositoryService {
-  constructor(private userRepository:UserRepositoryService) {}
+  constructor(private userRepository: UserRepositoryService) {}
 
-  getCatalog():Observable<any[]> {
+  getCatalog(): Observable<any[]> {
     const subject = new Subject<any>();
-    const currentUser = this.userRepository.currentUser || {classes:[]};
+    const currentUser = this.userRepository.currentUser || {classes: []};
     const catalogWithEnrollmentStatus =
       courseCatalog.map(catalogClass => {
-        let enrolled = {enrolled: currentUser.classes.includes(catalogClass.classId)};
+        const enrolled = {enrolled: currentUser.classes.includes(catalogClass.classId)};
         return Object.assign(catalogClass, enrolled);
       });
-    setTimeout(() => {subject.next(catalogWithEnrollmentStatus); subject.complete();}, 200);
+    setTimeout(() => {subject.next(catalogWithEnrollmentStatus); subject.complete(); }, 200);
 
     return subject;
   }
@@ -32,22 +33,22 @@ const courses = [{
   courseName: 'Ancient History of Magic',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'CH101',
   courseName: 'Intro to Charms',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'CH205',
   courseName: 'Creating Advanced Charms',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'SP101',
   courseName: 'Intro Spell Casting',
   creditHours: 4,
   description: '...'
-},{
+}, {
   courseNumber: 'SP201',
   courseName: 'Advanced Spell Casting',
   creditHours: 4,
@@ -82,49 +83,49 @@ const courseCatalog = [{
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[2],
   professor: 'Meriel Dufaux',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[3],
   professor: 'Adranus Klaus',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[4],
   professor: 'Ragnvald Graupnar',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[5],
   professor: 'Philosifus Siebrand',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[2],
   professor: 'Phoebe Chabon',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[3],
   professor: 'Sycily Soule',
   seatsAvailable: 28,
   days: 'THF',
   time: 11
-},{
+}, {
   classId: '7277956e-795f-4c0f-9861-cf03635df5ea',
   course: courses[4],
   professor: 'Heldebald Cincebeaux',
